@@ -26,6 +26,11 @@ public class Card {
     public Card() {
     }
 
+    public Card(String cardHolderName, String cardImage) {
+        this.cardHolderName = cardHolderName;
+        this.cardImage = cardImage;
+    }
+
     public int getCardId() {
         return cardId;
     }
