@@ -1,15 +1,15 @@
-package com.example.wupproject;
+package com.example.wupproject.main;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.example.wupproject.R;
 import com.example.wupproject.apiservice.BaseApiService;
 import com.example.wupproject.apiservice.UtilsApi;
 import com.example.wupproject.model.Card;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,16 +27,37 @@ public class MainActivity extends AppCompatActivity {
 
     BaseApiService mApiService;
 
-    List<Card> cards;
+    List<Card> cards = new ArrayList<>();;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-
-        cards = new ArrayList<>();
         mApiService = UtilsApi.getAPIService();
+        mApiService.getCards()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<List<Card>>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(List<Card> cards) {
+                        textView.setText(cards.get(0).getCardHolderName());
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
 
     }
 }
