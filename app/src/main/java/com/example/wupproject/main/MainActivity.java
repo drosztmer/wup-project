@@ -20,7 +20,9 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements MainContract.View {
+
+    MainContract.Presenter mPresenter;
 
     @BindView(R.id.textView)
     TextView textView;
@@ -33,7 +35,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         ButterKnife.bind(this);
+
+        mPresenter = new MainPresenter(this);
+
         mApiService = UtilsApi.getAPIService();
         mApiService.getCards()
                 .subscribeOn(Schedulers.io())
@@ -59,5 +65,20 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
+    }
+
+    @Override
+    public void showData() {
+
+    }
+
+    @Override
+    public void showDetails() {
+
+    }
+
+    @Override
+    public void setPresenter(MainContract.Presenter presenter) {
+        mPresenter = presenter;
     }
 }
