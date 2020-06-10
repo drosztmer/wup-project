@@ -2,6 +2,9 @@ package com.example.wupproject.main;
 
 import com.example.wupproject.BasePresenter;
 import com.example.wupproject.BaseView;
+import com.example.wupproject.model.Card;
+
+import java.util.List;
 
 public interface MainContract {
 
@@ -15,7 +18,7 @@ public interface MainContract {
 
     interface View extends BaseView<Presenter> {
 
-        void showData();
+        void showData(List<Card> cards);
 
         void showDetails();
 

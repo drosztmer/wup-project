@@ -16,7 +16,6 @@ public class MainPresenter implements MainContract.Presenter{
     MainContract.View mView;
     BaseApiService mApiService;
 
-
     public MainPresenter(MainContract.View mView) {
         this.mView = mView;
         mApiService = UtilsApi.getAPIService();
@@ -36,7 +35,7 @@ public class MainPresenter implements MainContract.Presenter{
 
                     @Override
                     public void onNext(List<Card> cards) {
-
+                        mView.showData(cards);
                     }
 
                     @Override
