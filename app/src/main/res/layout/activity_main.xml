@@ -9,14 +9,35 @@
 
     <TextView
         android:id="@+id/textView"
-        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:gravity="center" />
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/card_pager"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="150dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content">
+
+        <View
+            android:id="@+id/view"
+            android:layout_centerVertical="true"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@drawable/available" />
+
+        <View
+            android:id="@+id/current"
+            android:layout_width="100dp"
+            android:layout_height="20dp"
+            android:background="@drawable/current"
+            android:layout_alignParentRight="true"
+            tools:layout_editor_absoluteY="0dp" />
+
+    </RelativeLayout>
 
 </LinearLayout>

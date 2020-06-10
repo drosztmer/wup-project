@@ -1,6 +1,5 @@
 package com.example.wupproject.cardfragment;
 
-import android.media.Image;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
@@ -31,7 +30,6 @@ public class CardFragment extends Fragment {
     }
 
     private void switchCardImage(int cardImageNumber) {
-        System.out.println("CARDFRAGMENTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT");
         switch (cardImageNumber) {
             case 1:
                 cardImageView.setImageResource(R.drawable.cccard);

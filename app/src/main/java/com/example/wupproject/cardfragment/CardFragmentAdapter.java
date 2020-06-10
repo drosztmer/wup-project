@@ -1,6 +1,7 @@
 package com.example.wupproject.cardfragment;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -9,15 +10,20 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.example.wupproject.model.Card;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CardFragmentAdapter extends FragmentPagerAdapter {
 
-    private List<Card> cards;
+    private List<Card> cards = new ArrayList<>();
 
-    public CardFragmentAdapter(@NonNull FragmentManager fm, List<Card> cards) {
+    public CardFragmentAdapter(@NonNull FragmentManager fm) {
         super(fm);
+    }
+
+    public void addCards(List<Card> cards) {
         this.cards = cards;
+        notifyDataSetChanged();
     }
 
     @NonNull
@@ -26,6 +32,7 @@ public class CardFragmentAdapter extends FragmentPagerAdapter {
         CardFragment cardFragment = new CardFragment();
         Bundle bundle = new Bundle();
         bundle.putInt("cardImageNumber", Integer.parseInt(cards.get(position).getCardImage()));
+        Log.d("Item loaded!!!!!!!!!! ", String.valueOf(position));
         cardFragment.setArguments(bundle);
         return cardFragment;
     }
@@ -33,5 +40,9 @@ public class CardFragmentAdapter extends FragmentPagerAdapter {
     @Override
     public int getCount() {
         return cards.size();
+    }
+
+    public Card getItemAt(int position) {
+        return cards.get(position);
     }
 }
