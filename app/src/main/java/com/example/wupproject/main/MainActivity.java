@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     @BindView(R.id.textView)
     TextView textView;
 
-    BaseApiService mApiService;
 
     List<Card> cards = new ArrayList<>();;
 
@@ -39,31 +38,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         ButterKnife.bind(this);
 
         mPresenter = new MainPresenter(this);
-
-        mApiService = UtilsApi.getAPIService();
-        mApiService.getCards()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<List<Card>>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-
-                    }
-
-                    @Override
-                    public void onNext(List<Card> cards) {
-                        textView.setText(cards.get(0).getCardHolderName());
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                    }
-
-                    @Override
-                    public void onComplete() {
-
-                    }
-                });
 
     }
 
