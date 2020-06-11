@@ -16,6 +16,7 @@ import com.example.wupproject.R;
 import com.example.wupproject.cardfragment.CardFragmentAdapter;
 import com.example.wupproject.details.DetailsActivity;
 import com.example.wupproject.model.Card;
+import com.google.android.material.tabs.TabLayout;
 
 import java.text.DateFormat;
 import java.text.DecimalFormat;
@@ -63,6 +64,9 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     @BindView(R.id.due_date)
     TextView dueDate;
 
+    @BindView(R.id.tabDots)
+    TabLayout tabLayout;
+
     private CardFragmentAdapter cardFragmentAdapter;
     private ViewPager.OnPageChangeListener onPageChangeListener;
     private Card currentCard;
@@ -76,6 +80,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         mPresenter = new MainPresenter(this);
         cardFragmentAdapter = new CardFragmentAdapter(getSupportFragmentManager());
         viewPager.setAdapter(cardFragmentAdapter);
+        tabLayout.setupWithViewPager(viewPager, true);
         onPageChangeListener = new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {

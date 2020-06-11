@@ -23,17 +23,24 @@
         android:background="@color/separator"/>
 
     <androidx.viewpager.widget.ViewPager
-        android:layout_marginTop="@dimen/viewpager_margintop"
         android:id="@+id/card_pager"
         android:layout_width="wrap_content"
-        android:layout_height="150dp" />
+        android:layout_height="126dp"
+        android:layout_marginTop="@dimen/viewpager_margintop" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabDots"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabBackground="@drawable/tab_selector"
+        app:tabGravity="center"
+        app:tabIndicatorHeight="0dp"/>
 
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/balance_margintop"
         android:orientation="horizontal">
 
         <TextView
@@ -246,6 +253,7 @@
             android:layout_height="@dimen/button_height"
             android:layout_marginTop="@dimen/btnMarginTop"
             android:background="@drawable/button_rounded"
+            android:letterSpacing="0.1"
             android:text="@string/btnDetails"
             android:textColor="@color/button_textcolor"
             android:textSize="@dimen/text_small" />
