@@ -8,17 +8,57 @@
     tools:context=".main.MainActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/card_type"
+        android:height="@dimen/title_view_height"
+        android:textSize="@dimen/main_title_text_size"
+        android:fontFamily="@string/roboto_medium"
+        android:textColor="@color/text_light_blue"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center" />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/separator_height"
+        android:background="@color/separator"/>
+
     <androidx.viewpager.widget.ViewPager
+        android:layout_marginTop="@dimen/viewpager_margintop"
         android:id="@+id/card_pager"
         android:layout_width="wrap_content"
         android:layout_height="150dp" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_marginLeft="@dimen/balance_margin"
+            android:text="@string/available_balance"
+            android:fontFamily="@string/roboto_regular"
+            android:textColor="@color/text_light_blue"
+            android:textSize="@dimen/text_small"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content" />
+
+        <TextView
+            android:id="@+id/currentBalance"
+            android:layout_marginRight="@dimen/balance_margin"
+            android:fontFamily="@string/roboto_medium"
+            android:textColor="@color/text_light_blue"
+            android:textSize="@dimen/main_title_text_size"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:gravity="right"/>
+
+    </LinearLayout>
+
+
     <RelativeLayout
+        android:layout_marginLeft="@dimen/balance_margin"
+        android:layout_marginRight="@dimen/balance_margin"
+
         android:layout_width="match_parent"
         android:layout_gravity="center"
         android:layout_height="wrap_content">
@@ -27,27 +67,27 @@
             android:id="@+id/view"
             android:layout_centerVertical="true"
             android:layout_width="match_parent"
-            android:layout_height="5dp"
+            android:layout_height="@dimen/available_view_height"
             android:background="@drawable/available" />
 
         <View
             android:id="@+id/current"
             android:layout_width="100dp"
-            android:layout_height="20dp"
+            android:layout_height="@dimen/current_view_height"
             android:background="@drawable/current"
             android:layout_alignParentRight="true"
             tools:layout_editor_absoluteY="0dp" />
 
-        <Button
-            android:id="@+id/btnDetails"
-            android:layout_marginTop="@dimen/btnMarginTop"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/current"
-            android:text="@string/btnDetails" />
 
     </RelativeLayout>
 
+    <Button
+        android:id="@+id/btnDetails"
+        android:layout_marginTop="@dimen/btnMarginTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/current"
+        android:text="@string/btnDetails" />
 
 
 </LinearLayout>

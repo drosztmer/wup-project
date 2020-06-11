@@ -17,7 +17,10 @@ import com.example.wupproject.cardfragment.CardFragmentAdapter;
 import com.example.wupproject.details.DetailsActivity;
 import com.example.wupproject.model.Card;
 
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.util.List;
+import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -26,8 +29,8 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
     MainContract.Presenter mPresenter;
 
-    @BindView(R.id.textView)
-    TextView textView;
+    @BindView(R.id.card_type)
+    TextView titleView;
 
     @BindView(R.id.card_pager)
     ViewPager viewPager;
@@ -37,6 +40,9 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
     @BindView(R.id.btnDetails)
     Button btnDetails;
+
+    @BindView(R.id.currentBalance)
+    TextView currentBalance;
 
     private CardFragmentAdapter cardFragmentAdapter;
     private ViewPager.OnPageChangeListener onPageChangeListener;
@@ -60,9 +66,12 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
             @Override
             public void onPageSelected(int position) {
                 Card newCard = cardFragmentAdapter.getItemAt(position);
-                textView.setText(newCard.getCardHolderName());
+                cardFragmentAdapter.notifyDataSetChanged();
                 ViewParent parent = currentView.getParent();
                 int parentWidth = ((RelativeLayout) parent).getMeasuredWidth();
+
+                FillViewsWithData(newCard, parentWidth);
+
                 if (currentCard != null) {
                     animateView(newCard, parentWidth);
                 }
@@ -81,15 +90,44 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         btnDetails.setOnClickListener(v -> details());
     }
 
+    private void FillViewsWithData(Card newCard, int parentWidth) {
+        setMainTitle(newCard.getCardImage());
+
+        DecimalFormatSymbols otherSymbols = new DecimalFormatSymbols(Locale.getDefault());
+        otherSymbols.setDecimalSeparator('.');
+        otherSymbols.setGroupingSeparator('\'');
+        DecimalFormat df = new DecimalFormat("###,###.00", otherSymbols);
+        currentBalance.setText(df.format(newCard.getCurrentBalance()));
+
+        double toRatio = (double) newCard.getCurrentBalance() / (newCard.getAvailableBalance() + newCard.getCurrentBalance());
+        int toWidth = (int) (toRatio * parentWidth);
+        currentView.getLayoutParams().width = toWidth;
+        currentView.requestLayout();
+    }
+
+    private void setMainTitle(String cardImage) {
+        switch (cardImage) {
+            case "1":
+                titleView.setText(R.string.title_premium);
+                break;
+            case "2":
+                titleView.setText(R.string.title_rewards);
+                break;
+            case "3":
+                titleView.setText(R.string.title_journey);
+                break;
+            default:
+                titleView.setText(R.string.title_default);
+        }
+    }
+
     private void animateView(Card newCard, int parentWidth) {
         int fromWidth;
         double fromRatio = (double) currentCard.getCurrentBalance() / (currentCard.getAvailableBalance() + currentCard.getCurrentBalance());
         fromWidth = (int) (fromRatio * parentWidth);
         double toRatio = (double) newCard.getCurrentBalance() / (newCard.getAvailableBalance() + newCard.getCurrentBalance());
         int toWidth = (int) (toRatio * parentWidth);
-
         ValueAnimator anim = ValueAnimator.ofInt(fromWidth, toWidth);
-
         anim.setDuration(250);
         anim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
