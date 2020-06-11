@@ -13,7 +13,7 @@ import butterknife.ButterKnife;
 
 public class DetailsActivity extends AppCompatActivity implements DetailsContract.View {
 
-    @BindView(R.id.currentBalance)
+    @BindView(R.id.availableBalance)
     TextView currentBalance;
 
     @Override

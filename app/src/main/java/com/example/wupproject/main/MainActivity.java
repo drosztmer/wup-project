@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     @BindView(R.id.btnDetails)
     Button btnDetails;
 
-    @BindView(R.id.currentBalance)
+    @BindView(R.id.availableBalance)
     TextView currentBalance;
 
     private CardFragmentAdapter cardFragmentAdapter;
@@ -65,12 +65,14 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
             @Override
             public void onPageSelected(int position) {
+                currentBalance.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
+
                 Card newCard = cardFragmentAdapter.getItemAt(position);
                 cardFragmentAdapter.notifyDataSetChanged();
                 ViewParent parent = currentView.getParent();
                 int parentWidth = ((RelativeLayout) parent).getMeasuredWidth();
 
-                FillViewsWithData(newCard, parentWidth);
+                fillViewsWithData(newCard, parentWidth);
 
                 if (currentCard != null) {
                     animateView(newCard, parentWidth);
@@ -90,16 +92,19 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         btnDetails.setOnClickListener(v -> details());
     }
 
-    private void FillViewsWithData(Card newCard, int parentWidth) {
+    private void fillViewsWithData(Card newCard, int parentWidth) {
         setMainTitle(newCard.getCardImage());
 
         DecimalFormatSymbols otherSymbols = new DecimalFormatSymbols(Locale.getDefault());
         otherSymbols.setDecimalSeparator('.');
         otherSymbols.setGroupingSeparator('\'');
-        DecimalFormat df = new DecimalFormat("###,###.00", otherSymbols);
-        currentBalance.setText(df.format(newCard.getCurrentBalance()));
+        DecimalFormat df = new DecimalFormat("###,##0.00", otherSymbols);
+        if(newCard.getAvailableBalance() == 0) {
+            currentBalance.setTextColor(getResources().getColor(R.color.zero_balance));
+        }
+        currentBalance.setText(df.format(newCard.getAvailableBalance()));
 
-        double toRatio = (double) newCard.getCurrentBalance() / (newCard.getAvailableBalance() + newCard.getCurrentBalance());
+        double toRatio = (double) newCard.getAvailableBalance() / (newCard.getAvailableBalance() + newCard.getCurrentBalance());
         int toWidth = (int) (toRatio * parentWidth);
         currentView.getLayoutParams().width = toWidth;
         currentView.requestLayout();
@@ -123,9 +128,9 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
     private void animateView(Card newCard, int parentWidth) {
         int fromWidth;
-        double fromRatio = (double) currentCard.getCurrentBalance() / (currentCard.getAvailableBalance() + currentCard.getCurrentBalance());
+        double fromRatio = (double) currentCard.getAvailableBalance() / (currentCard.getAvailableBalance() + currentCard.getCurrentBalance());
         fromWidth = (int) (fromRatio * parentWidth);
-        double toRatio = (double) newCard.getCurrentBalance() / (newCard.getAvailableBalance() + newCard.getCurrentBalance());
+        double toRatio = (double) newCard.getAvailableBalance() / (newCard.getAvailableBalance() + newCard.getCurrentBalance());
         int toWidth = (int) (toRatio * parentWidth);
         ValueAnimator anim = ValueAnimator.ofInt(fromWidth, toWidth);
         anim.setDuration(250);

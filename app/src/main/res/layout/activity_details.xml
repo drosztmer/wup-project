@@ -8,7 +8,7 @@
     tools:context=".details.DetailsActivity">
 
     <TextView
-        android:id="@+id/currentBalance"
+        android:id="@+id/availableBalance"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"/>

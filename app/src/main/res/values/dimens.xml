@@ -7,6 +7,10 @@
     <dimen name="viewpager_margintop">18dp</dimen>
     <dimen name="available_view_height">4dp</dimen>
     <dimen name="current_view_height">12dp</dimen>
-    <dimen name="balance_margin">16dp</dimen>
+    <dimen name="margin_left">16dp</dimen>
     <dimen name="text_small" format="float">14.17sp</dimen>
+    <dimen name="balance_margintop">49dp</dimen>
+    <dimen name="text_medium" format="float">16.19sp</dimen>
+    <dimen name="currency_marginright">19dp</dimen>
+    <dimen name="separator_margin_top_bottom">12dp</dimen>
 </resources>

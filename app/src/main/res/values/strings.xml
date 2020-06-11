@@ -12,4 +12,6 @@
     <string name="roboto_medium">sans-serif-medium</string>
     <string name="roboto_regular">sans-serif</string>
     <string name="available_balance">Available</string>
+    <string name="current_balance">Current balance</string>
+    <string name="min_payment">Min. payment</string>
 </resources>
