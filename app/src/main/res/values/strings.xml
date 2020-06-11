@@ -2,4 +2,6 @@
     <string name="app_name">Wup Project</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="btnDetails">Details</string>
+    <string name="no_image_found">No image found for that cardImage</string>
 </resources>

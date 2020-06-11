@@ -51,11 +51,6 @@ public class MainPresenter implements MainContract.Presenter{
     }
 
     @Override
-    public void loadDetails() {
-
-    }
-
-    @Override
     public void onDetach() {
         this.mView = null;
     }

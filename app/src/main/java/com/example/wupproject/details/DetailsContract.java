@@ -1,12 +1,13 @@
-package com.example.wupproject.main;
+package com.example.wupproject.details;
 
 import com.example.wupproject.BasePresenter;
 import com.example.wupproject.BaseView;
+import com.example.wupproject.main.MainContract;
 import com.example.wupproject.model.Card;
 
 import java.util.List;
 
-public interface MainContract {
+public interface DetailsContract {
 
     interface Presenter extends BasePresenter {
 
@@ -14,9 +15,9 @@ public interface MainContract {
 
     }
 
-    interface View extends BaseView<Presenter> {
+    interface View extends BaseView<DetailsContract.Presenter> {
 
-        void showData(List<Card> cards);
+        void showDetails();
 
     }
 }

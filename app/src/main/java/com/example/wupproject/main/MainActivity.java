@@ -4,15 +4,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import android.animation.ValueAnimator;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewParent;
-import android.widget.ProgressBar;
+import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.wupproject.R;
 import com.example.wupproject.cardfragment.CardFragmentAdapter;
+import com.example.wupproject.details.DetailsActivity;
 import com.example.wupproject.model.Card;
 
 import java.util.List;
@@ -32,6 +34,9 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
     @BindView(R.id.current)
     View currentView;
+
+    @BindView(R.id.btnDetails)
+    Button btnDetails;
 
     private CardFragmentAdapter cardFragmentAdapter;
     private ViewPager.OnPageChangeListener onPageChangeListener;
@@ -60,7 +65,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
                 int parentWidth = ((RelativeLayout) parent).getMeasuredWidth();
                 if (currentCard != null) {
                     animateView(newCard, parentWidth);
-
                 }
                 currentCard = newCard;
 
@@ -73,7 +77,8 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         };
         viewPager.addOnPageChangeListener(onPageChangeListener);
         mPresenter.loadData();
-        System.out.println();
+
+        btnDetails.setOnClickListener(v -> details());
     }
 
     private void animateView(Card newCard, int parentWidth) {
@@ -102,14 +107,16 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         onPageChangeListener.onPageSelected(viewPager.getCurrentItem());
     }
 
-    @Override
-    public void showDetails() {
-
-    }
 
     @Override
     public void setPresenter(MainContract.Presenter presenter) {
         mPresenter = presenter;
+    }
+
+    private void details() {
+        Intent intent = new Intent(this, DetailsActivity.class);
+        intent.putExtra("card", currentCard);
+        startActivity(intent);
     }
 
 }

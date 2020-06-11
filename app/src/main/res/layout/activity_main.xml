@@ -38,6 +38,16 @@
             android:layout_alignParentRight="true"
             tools:layout_editor_absoluteY="0dp" />
 
+        <Button
+            android:id="@+id/btnDetails"
+            android:layout_marginTop="@dimen/btnMarginTop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/current"
+            android:text="@string/btnDetails" />
+
     </RelativeLayout>
+
+
 
 </LinearLayout>

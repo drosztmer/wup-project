@@ -32,7 +32,6 @@ public class CardFragmentAdapter extends FragmentPagerAdapter {
         CardFragment cardFragment = new CardFragment();
         Bundle bundle = new Bundle();
         bundle.putInt("cardImageNumber", Integer.parseInt(cards.get(position).getCardImage()));
-        Log.d("Item loaded!!!!!!!!!! ", String.valueOf(position));
         cardFragment.setArguments(bundle);
         return cardFragment;
     }

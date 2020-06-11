@@ -41,7 +41,7 @@ public class CardFragment extends Fragment {
                 cardImageView.setImageResource(R.drawable.cccard3);
                 break;
             default:
-                System.out.println("No image found for that cardImage");
+                System.out.println(getString(R.string.no_image_found));
         }
     }
 }
