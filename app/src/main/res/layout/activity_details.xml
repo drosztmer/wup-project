@@ -1,16 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".details.DetailsActivity">
+    android:layout_width="match_parent">
 
-    <TextView
-        android:id="@+id/availableBalance"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/details_margin_top"
+            android:orientation="horizontal">
 
-</LinearLayout>
+            <TextView
+                android:layout_marginLeft="@dimen/margin_left"
+                android:text="@string/details_current_balance"
+                android:fontFamily="@string/roboto_regular"
+                android:textColor="@color/text_light_blue"
+                android:textSize="@dimen/text_small"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_marginStart="@dimen/margin_left" />
+
+            <TextView
+                android:layout_marginRight="@dimen/margin_left"
+                android:fontFamily="@string/roboto_regular"
+                android:textColor="@color/text_light_blue"
+                android:textSize="@dimen/text_small"
+                android:text="@string/details_available"
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:gravity="right"
+                android:layout_marginEnd="@dimen/margin_left" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/details_current"
+                android:layout_marginLeft="@dimen/margin_left"
+                android:text="4000.00"
+                android:fontFamily="@string/roboto_medium"
+                android:textColor="@color/details_currentbalance_orange"
+                android:textSize="@dimen/main_title_text_size"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_marginStart="@dimen/margin_left" />
+
+            <TextView
+                android:id="@+id/details_available"
+                android:layout_marginRight="@dimen/margin_left"
+                android:fontFamily="@string/roboto_medium"
+                android:textColor="@color/text_light_blue"
+                android:textSize="@dimen/main_title_text_size"
+                android:text="5000.00"
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:gravity="right"
+                android:layout_marginEnd="@dimen/margin_left" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_left"
+            android:layout_marginRight="@dimen/margin_left">
+
+            <com.example.wupproject.details.DetailsProgressBar
+                android:id="@+id/detail_progressbar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/details_progressbar_height"
+                android:layout_marginLeft="1sp"
+                android:layout_marginRight="1sp"
+                android:layout_marginTop="10sp"
+                android:progressDrawable="@drawable/progress" />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+
+</ScrollView>
