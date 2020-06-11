@@ -17,8 +17,12 @@ import com.example.wupproject.cardfragment.CardFragmentAdapter;
 import com.example.wupproject.details.DetailsActivity;
 import com.example.wupproject.model.Card;
 
+import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -42,7 +46,22 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     Button btnDetails;
 
     @BindView(R.id.availableBalance)
+    TextView availableBalance;
+
+    @BindView(R.id.currency)
+    TextView currency;
+
+    @BindView(R.id.currentBalance)
     TextView currentBalance;
+
+    @BindView(R.id.currency_min_payment)
+    TextView currencyMinPayment;
+
+    @BindView(R.id.min_payment)
+    TextView minPayment;
+
+    @BindView(R.id.due_date)
+    TextView dueDate;
 
     private CardFragmentAdapter cardFragmentAdapter;
     private ViewPager.OnPageChangeListener onPageChangeListener;
@@ -65,7 +84,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
             @Override
             public void onPageSelected(int position) {
-                currentBalance.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
+                availableBalance.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
 
                 Card newCard = cardFragmentAdapter.getItemAt(position);
                 cardFragmentAdapter.notifyDataSetChanged();
@@ -100,14 +119,38 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         otherSymbols.setGroupingSeparator('\'');
         DecimalFormat df = new DecimalFormat("###,##0.00", otherSymbols);
         if(newCard.getAvailableBalance() == 0) {
-            currentBalance.setTextColor(getResources().getColor(R.color.zero_balance));
+            availableBalance.setTextColor(getResources().getColor(R.color.zero_balance));
         }
-        currentBalance.setText(df.format(newCard.getAvailableBalance()));
+        availableBalance.setText(df.format(newCard.getAvailableBalance()));
 
         double toRatio = (double) newCard.getAvailableBalance() / (newCard.getAvailableBalance() + newCard.getCurrentBalance());
         int toWidth = (int) (toRatio * parentWidth);
         currentView.getLayoutParams().width = toWidth;
         currentView.requestLayout();
+
+        currency.setText(newCard.getCurrency());
+
+        currentBalance.setText(df.format(newCard.getCurrentBalance()));
+
+        currencyMinPayment.setText(newCard.getCurrency());
+
+        minPayment.setText(df.format(newCard.getMinPayment()));
+
+        dueDate.setText(formatDueDate(newCard.getDueDate()));
+
+
+    }
+
+    private String formatDueDate(String dueDateStr) {
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Date inputDate = new Date();
+        try {
+            inputDate = dateFormat.parse(dueDateStr);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        android.text.format.DateFormat df = new android.text.format.DateFormat();
+        return df.format("MM.dd.yyyy", inputDate).toString();
     }
 
     private void setMainTitle(String cardImage) {

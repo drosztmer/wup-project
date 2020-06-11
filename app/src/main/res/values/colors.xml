@@ -8,4 +8,6 @@
     <color name="zero_balance">#CE3760</color>
     <color name="grey">#666666</color>
     <color name="text_dark_blue">#05293E</color>
+    <color name="button_textcolor">#539AC6</color>
+    <color name="button_pressed">#6202EE</color>
 </resources>

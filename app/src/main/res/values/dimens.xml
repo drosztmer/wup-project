@@ -13,4 +13,6 @@
     <dimen name="text_medium" format="float">16.19sp</dimen>
     <dimen name="currency_marginright">19dp</dimen>
     <dimen name="separator_margin_top_bottom">12dp</dimen>
+    <dimen name="button_width">160dp</dimen>
+    <dimen name="button_height">36dp</dimen>
 </resources>

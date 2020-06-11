@@ -115,7 +115,6 @@
                 android:layout_marginRight="@dimen/currency_marginright"
                 android:fontFamily="@string/roboto_regular"
                 android:gravity="right"
-                android:text="USD"
                 android:textColor="@color/grey"
                 android:textSize="@dimen/text_medium" />
 
@@ -125,7 +124,6 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@string/roboto_medium"
                 android:gravity="right"
-                android:text="44'544.40"
                 android:textColor="@color/text_dark_blue"
                 android:textSize="@dimen/main_title_text_size" />
         </LinearLayout>
@@ -170,14 +168,12 @@
                 android:layout_marginRight="@dimen/currency_marginright"
                 android:fontFamily="@string/roboto_regular"
                 android:gravity="right"
-                android:text="USD"
                 android:textColor="@color/grey"
                 android:textSize="@dimen/text_medium" />
 
             <TextView
-                android:id="@+id/minPayment"
+                android:id="@+id/min_payment"
                 android:fontFamily="@string/roboto_medium"
-                android:text="50.00"
                 android:textColor="@color/text_dark_blue"
                 android:textSize="@dimen/main_title_text_size"
                 android:layout_height="wrap_content"
@@ -203,7 +199,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:text="Due date"
+            android:text="@string/due_date"
             android:fontFamily="@string/roboto_regular"
             android:textColor="@color/text_light_blue"
             android:textSize="@dimen/text_medium"
@@ -219,9 +215,8 @@
             android:layout_marginEnd="@dimen/margin_left">
 
             <TextView
-                android:id="@+id/dueDate"
+                android:id="@+id/due_date"
                 android:fontFamily="@string/roboto_medium"
-                android:text="01.09.2018"
                 android:textColor="@color/text_dark_blue"
                 android:textSize="@dimen/main_title_text_size"
                 android:layout_height="wrap_content"
@@ -239,13 +234,24 @@
         android:layout_marginLeft="@dimen/margin_left"
         android:background="@color/separator"/>
 
-    <Button
-        android:id="@+id/btnDetails"
-        android:layout_marginTop="@dimen/btnMarginTop"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/current"
-        android:text="@string/btnDetails" />
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <Button
+            android:id="@+id/btnDetails"
+            android:layout_width="@dimen/button_width"
+            android:layout_height="@dimen/button_height"
+            android:layout_marginTop="@dimen/btnMarginTop"
+            android:background="@drawable/button_rounded"
+            android:text="@string/btnDetails"
+            android:textColor="@color/button_textcolor"
+            android:textSize="@dimen/text_small" />
+
+    </LinearLayout>
+
 
 
 </LinearLayout>

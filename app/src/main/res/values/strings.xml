@@ -14,4 +14,5 @@
     <string name="available_balance">Available</string>
     <string name="current_balance">Current balance</string>
     <string name="min_payment">Min. payment</string>
+    <string name="due_date">Due date</string>
 </resources>
