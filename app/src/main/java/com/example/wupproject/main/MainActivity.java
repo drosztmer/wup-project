@@ -67,7 +67,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
                     animateView(newCard, parentWidth);
                 }
                 currentCard = newCard;
-
             }
 
             @Override
@@ -75,6 +74,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
             }
         };
+
         viewPager.addOnPageChangeListener(onPageChangeListener);
         mPresenter.loadData();
 
@@ -118,5 +118,4 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         intent.putExtra("card", currentCard);
         startActivity(intent);
     }
-
 }

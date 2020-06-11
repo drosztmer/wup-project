@@ -1,7 +1,6 @@
 package com.example.wupproject.cardfragment;
 
 import android.os.Bundle;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
