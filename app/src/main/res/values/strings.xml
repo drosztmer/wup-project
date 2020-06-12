@@ -29,4 +29,5 @@
     <string name="card_holder_name">Card holder name</string>
     <string name="supplementary_card">SUPPLEMENTARY CARD</string>
     <string name="details_activity_label">Details</string>
+    <string name="no_info">-</string>
 </resources>

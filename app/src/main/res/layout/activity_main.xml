@@ -119,7 +119,6 @@
                 android:layout_marginRight="@dimen/currency_marginright"
                 android:fontFamily="@string/roboto_regular"
                 android:gravity="right"
-                android:text="USD"
                 android:textColor="@color/grey"
                 android:textSize="@dimen/text_medium" />
 
@@ -136,7 +135,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@string/roboto_medium"
-                    android:text="50.000.00"
                     android:textColor="@color/text_dark_blue"
                     android:textSize="@dimen/text_medium" />
             </LinearLayout>
@@ -174,7 +172,6 @@
                 android:layout_marginRight="@dimen/currency_marginright"
                 android:fontFamily="@string/roboto_regular"
                 android:gravity="right"
-                android:text="USD"
                 android:textColor="@color/grey"
                 android:textSize="@dimen/text_medium" />
 
