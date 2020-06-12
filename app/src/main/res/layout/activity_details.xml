@@ -48,7 +48,6 @@
                 android:layout_marginStart="@dimen/margin_left"
                 android:layout_marginLeft="@dimen/margin_left"
                 android:fontFamily="@string/roboto_medium"
-                android:text="4000.00"
                 android:textColor="@color/details_currentbalance_orange"
                 android:textSize="@dimen/main_title_text_size" />
 
@@ -60,7 +59,6 @@
                 android:layout_marginRight="@dimen/margin_left"
                 android:fontFamily="@string/roboto_medium"
                 android:gravity="right"
-                android:text="5000.00"
                 android:textColor="@color/text_light_blue"
                 android:textSize="@dimen/main_title_text_size" />
         </LinearLayout>
@@ -95,7 +93,7 @@
                 android:layout_height="wrap_content"
                 android:width="@dimen/column_text_width"
                 android:fontFamily="@string/roboto_regular"
-                android:text="Reservations/Pending (sum)"
+                android:text="@string/reservations_pending_sum"
                 android:textColor="@color/text_light_blue"
                 android:textSize="@dimen/text_medium" />
 
@@ -105,7 +103,6 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@string/roboto_regular"
                 android:gravity="right"
-                android:text="USD"
                 android:textColor="@color/grey"
                 android:textSize="@dimen/text_medium" />
 
@@ -238,7 +235,6 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@string/roboto_medium"
                     android:gravity="right"
-                    android:text="500.00"
                     android:textColor="@color/text_dark_blue"
                     android:textSize="@dimen/text_medium" />
             </LinearLayout>
@@ -282,7 +278,6 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@string/roboto_medium"
                     android:gravity="right"
-                    android:text="31.07.2018"
                     android:textColor="@color/text_dark_blue"
                     android:textSize="@dimen/text_medium" />
             </LinearLayout>
@@ -596,7 +591,7 @@
             android:layout_height="@dimen/separator_height"
             android:layout_marginLeft="@dimen/margin_left"
             android:layout_marginTop="@dimen/separator_margin_top_bottom"
-            android:layout_marginBottom="@dimen/details_margin_bottom"
+            android:layout_marginBottom="@dimen/margin_bottom"
             android:background="@color/separator" />
 
     </LinearLayout>

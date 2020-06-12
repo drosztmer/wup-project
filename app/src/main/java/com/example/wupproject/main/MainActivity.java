@@ -67,6 +67,9 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     @BindView(R.id.tabDots)
     TabLayout tabLayout;
 
+    @BindView(R.id.exclamationmark)
+    View exclamationMark;
+
     private CardFragmentAdapter cardFragmentAdapter;
     private ViewPager.OnPageChangeListener onPageChangeListener;
     private Card currentCard;
@@ -90,6 +93,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
             @Override
             public void onPageSelected(int position) {
                 availableBalance.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
+                exclamationMark.setVisibility(View.GONE);
 
                 Card newCard = cardFragmentAdapter.getItemAt(position);
                 cardFragmentAdapter.notifyDataSetChanged();
@@ -125,6 +129,8 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         DecimalFormat df = new DecimalFormat("###,##0.00", otherSymbols);
         if(newCard.getAvailableBalance() == 0) {
             availableBalance.setTextColor(getResources().getColor(R.color.zero_balance));
+            exclamationMark.setVisibility(View.VISIBLE);
+
         }
         availableBalance.setText(df.format(newCard.getAvailableBalance()));
 

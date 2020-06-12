@@ -92,6 +92,15 @@
                 android:background="@drawable/current"
                 tools:layout_editor_absoluteY="0dp" />
 
+            <View
+                android:id="@+id/exclamationmark"
+                android:layout_width="@dimen/current_view_height"
+                android:layout_height="@dimen/current_view_height"
+                android:layout_alignParentRight="true"
+                android:visibility="gone"
+                android:background="@drawable/exclamationmark"
+                tools:layout_editor_absoluteY="dp" />
+
 
         </RelativeLayout>
 
@@ -257,6 +266,7 @@
                 android:layout_width="@dimen/button_width"
                 android:layout_height="@dimen/button_height"
                 android:layout_marginTop="@dimen/btnMarginTop"
+                android:layout_marginBottom="@dimen/margin_bottom"
                 android:background="@drawable/button_rounded"
                 android:letterSpacing="0.1"
                 android:text="@string/btnDetails"

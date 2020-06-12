@@ -30,4 +30,5 @@
     <string name="supplementary_card">SUPPLEMENTARY CARD</string>
     <string name="details_activity_label">Details</string>
     <string name="no_info">-</string>
+    <string name="reservations_pending_sum">Reservations/Pending (sum)</string>
 </resources>
