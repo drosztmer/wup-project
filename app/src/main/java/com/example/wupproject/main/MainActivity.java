@@ -92,32 +92,27 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         viewPager.setAdapter(cardFragmentAdapter);
         tabLayout.setupWithViewPager(viewPager, true);
 
-        leftArrow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int tab = viewPager.getCurrentItem();
-                if (tab > 0) {
-                    tab--;
-                    viewPager.setCurrentItem(tab);
-                } else if (tab == 0) {
-                    viewPager.setCurrentItem(tab);
-                }
-            }
+        leftArrow.setOnClickListener(v -> {
+            viewPager.arrowScroll(ViewPager.FOCUS_LEFT);
         });
 
-        rightArrow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int tab = viewPager.getCurrentItem();
-                tab++;
-                viewPager.setCurrentItem(tab);
-            }
+        rightArrow.setOnClickListener(v -> {
+            viewPager.arrowScroll(View.FOCUS_RIGHT);
         });
 
         onPageChangeListener = new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
+                if (position == 0) {
+                    leftArrow.setVisibility(View.INVISIBLE);
+                } else {
+                    leftArrow.setVisibility(View.VISIBLE);
+                }
+                if (position == cardFragmentAdapter.getCount() - 1) {
+                    rightArrow.setVisibility(View.INVISIBLE);
+                } else {
+                    rightArrow.setVisibility(View.VISIBLE);
+                }
             }
 
             @Override
