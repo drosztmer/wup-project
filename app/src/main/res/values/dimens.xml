@@ -17,4 +17,8 @@
     <dimen name="button_height">36dp</dimen>
     <dimen name="details_margin_top">8dp</dimen>
     <dimen name="details_progressbar_height">40dp</dimen>
+    <dimen name="details_reservations_margintop">28dp</dimen>
+    <dimen name="column_text_width">194dp</dimen>
+    <dimen name="balance_overview_text_size" format="float">12.15sp</dimen>
+    <dimen name="details_margin_bottom">97dp</dimen>
 </resources>

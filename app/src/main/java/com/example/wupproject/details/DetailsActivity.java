@@ -50,9 +50,9 @@ public class DetailsActivity extends AppCompatActivity implements DetailsContrac
         detailsProgressBar.setMax(100);
         double currentBalance = card.getCurrentBalance();
         double availableBalance = card.getAvailableBalance();
-        double multiplicator = 10.0 / 9;
+        double ratio = 10.0 / 9;
 
-        double progressCurrent = (currentBalance / (currentBalance + availableBalance)) * 100 / multiplicator;
+        double progressCurrent = (currentBalance / (currentBalance + availableBalance)) * 100 / ratio;
         double secondaryProgress = progressCurrent + 10;
         detailsProgressBar.setProgress((int)progressCurrent);
         detailsProgressBar.setSecondaryProgress((int)secondaryProgress);

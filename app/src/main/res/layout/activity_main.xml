@@ -1,119 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".main.MainActivity">
-
-    <TextView
-        android:id="@+id/card_type"
-        android:height="@dimen/title_view_height"
-        android:textSize="@dimen/main_title_text_size"
-        android:fontFamily="@string/roboto_medium"
-        android:textColor="@color/text_light_blue"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/separator_height"
-        android:background="@color/separator"/>
-
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/card_pager"
-        android:layout_width="wrap_content"
-        android:layout_height="126dp"
-        android:layout_marginTop="@dimen/viewpager_margintop" />
-
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabDots"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:tabBackground="@drawable/tab_selector"
-        app:tabGravity="center"
-        app:tabIndicatorHeight="0dp"/>
-
-
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".main.MainActivity">
 
         <TextView
-            android:layout_marginLeft="@dimen/margin_left"
-            android:text="@string/available_balance"
-            android:fontFamily="@string/roboto_regular"
-            android:textColor="@color/text_light_blue"
-            android:textSize="@dimen/text_small"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:layout_marginStart="@dimen/margin_left" />
-
-        <TextView
-            android:id="@+id/availableBalance"
-            android:layout_marginRight="@dimen/margin_left"
-            android:fontFamily="@string/roboto_medium"
-            android:textColor="@color/text_light_blue"
-            android:textSize="@dimen/main_title_text_size"
-            android:layout_height="wrap_content"
-            android:layout_width="fill_parent"
-            android:gravity="right"/>
-
-    </LinearLayout>
-
-
-    <RelativeLayout
-        android:layout_marginLeft="@dimen/margin_left"
-        android:layout_marginRight="@dimen/margin_left"
-
-        android:layout_width="match_parent"
-        android:layout_gravity="center"
-        android:layout_height="wrap_content">
-
-        <View
-            android:id="@+id/view"
-            android:layout_centerVertical="true"
+            android:id="@+id/card_type"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/available_view_height"
-            android:background="@drawable/available" />
+            android:layout_height="wrap_content"
+            android:height="@dimen/title_view_height"
+            android:fontFamily="@string/roboto_medium"
+            android:gravity="center"
+            android:textColor="@color/text_light_blue"
+            android:textSize="@dimen/main_title_text_size" />
 
         <View
-            android:id="@+id/current"
-            android:layout_width="100dp"
-            android:layout_height="@dimen/current_view_height"
-            android:background="@drawable/current"
-            android:layout_alignParentRight="true"
-            tools:layout_editor_absoluteY="0dp" />
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/separator_height"
+            android:background="@color/separator" />
 
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/card_pager"
+            android:layout_width="wrap_content"
+            android:layout_height="126dp"
+            android:layout_marginTop="@dimen/viewpager_margintop" />
 
-    </RelativeLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/balance_margintop"
-        android:layout_marginLeft="@dimen/margin_left"
-        android:orientation="horizontal">
-
-        <TextView
-            android:text="@string/current_balance"
-            android:fontFamily="@string/roboto_regular"
-            android:textColor="@color/text_light_blue"
-            android:textSize="@dimen/text_medium"
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabDots"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content" />
+            app:tabBackground="@drawable/tab_selector"
+            app:tabGravity="center"
+            app:tabIndicatorHeight="0dp" />
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/margin_left"
-            android:layout_marginRight="@dimen/margin_left"
-            android:gravity="right"
             android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_left"
+                android:layout_marginLeft="@dimen/margin_left"
+                android:fontFamily="@string/roboto_regular"
+                android:text="@string/available_balance"
+                android:textColor="@color/text_light_blue"
+                android:textSize="@dimen/text_small" />
+
+            <TextView
+                android:id="@+id/availableBalance"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/margin_left"
+                android:fontFamily="@string/roboto_medium"
+                android:gravity="right"
+                android:textColor="@color/text_light_blue"
+                android:textSize="@dimen/main_title_text_size" />
+
+        </LinearLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/margin_left"
+            android:layout_marginRight="@dimen/margin_left">
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/available_view_height"
+                android:layout_centerVertical="true"
+                android:background="@drawable/available" />
+
+            <View
+                android:id="@+id/current"
+                android:layout_width="100dp"
+                android:layout_height="@dimen/current_view_height"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/current"
+                tools:layout_editor_absoluteY="0dp" />
+
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_left"
+            android:layout_marginTop="@dimen/balance_margintop"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="@dimen/column_text_width"
+                android:fontFamily="@string/roboto_regular"
+                android:text="@string/current_balance"
+                android:textColor="@color/text_light_blue"
+                android:textSize="@dimen/text_medium" />
 
             <TextView
                 android:id="@+id/currency"
@@ -122,51 +119,53 @@
                 android:layout_marginRight="@dimen/currency_marginright"
                 android:fontFamily="@string/roboto_regular"
                 android:gravity="right"
+                android:text="USD"
                 android:textColor="@color/grey"
                 android:textSize="@dimen/text_medium" />
 
-            <TextView
-                android:id="@+id/currentBalance"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@string/roboto_medium"
+                android:layout_marginEnd="@dimen/margin_left"
+                android:layout_marginRight="@dimen/margin_left"
                 android:gravity="right"
-                android:textColor="@color/text_dark_blue"
-                android:textSize="@dimen/main_title_text_size" />
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/currentBalance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@string/roboto_medium"
+                    android:text="50.000.00"
+                    android:textColor="@color/text_dark_blue"
+                    android:textSize="@dimen/text_medium" />
+            </LinearLayout>
+
         </LinearLayout>
 
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/separator_height"
-        android:layout_marginTop="@dimen/separator_margin_top_bottom"
-        android:layout_marginBottom="@dimen/separator_margin_top_bottom"
-        android:layout_marginLeft="@dimen/margin_left"
-        android:background="@color/separator"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/margin_left"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <TextView
-            android:text="@string/min_payment"
-            android:fontFamily="@string/roboto_regular"
-            android:textColor="@color/text_light_blue"
-            android:textSize="@dimen/text_medium"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/separator_height"
+            android:layout_marginLeft="@dimen/margin_left"
+            android:layout_marginTop="@dimen/separator_margin_top_bottom"
+            android:layout_marginBottom="@dimen/separator_margin_top_bottom"
+            android:background="@color/separator" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginRight="@dimen/margin_left"
-            android:gravity="right"
-            android:layout_marginEnd="@dimen/margin_left">
+            android:layout_marginLeft="@dimen/margin_left"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="@dimen/column_text_width"
+                android:fontFamily="@string/roboto_regular"
+                android:text="@string/min_payment"
+                android:textColor="@color/text_light_blue"
+                android:textSize="@dimen/text_medium" />
 
             <TextView
                 android:id="@+id/currency_min_payment"
@@ -175,91 +174,98 @@
                 android:layout_marginRight="@dimen/currency_marginright"
                 android:fontFamily="@string/roboto_regular"
                 android:gravity="right"
+                android:text="USD"
                 android:textColor="@color/grey"
                 android:textSize="@dimen/text_medium" />
 
-            <TextView
-                android:id="@+id/min_payment"
-                android:fontFamily="@string/roboto_medium"
-                android:textColor="@color/text_dark_blue"
-                android:textSize="@dimen/main_title_text_size"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:gravity="right"/>
+                android:layout_marginEnd="@dimen/margin_left"
+                android:layout_marginRight="@dimen/margin_left"
+                android:gravity="right"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/min_payment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@string/roboto_medium"
+                    android:gravity="right"
+                    android:textColor="@color/text_dark_blue"
+                    android:textSize="@dimen/text_medium" />
+            </LinearLayout>
+
         </LinearLayout>
 
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/separator_height"
-        android:layout_marginTop="@dimen/separator_margin_top_bottom"
-        android:layout_marginBottom="@dimen/separator_margin_top_bottom"
-        android:layout_marginLeft="@dimen/margin_left"
-        android:background="@color/separator"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/margin_left"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <TextView
-            android:text="@string/due_date"
-            android:fontFamily="@string/roboto_regular"
-            android:textColor="@color/text_light_blue"
-            android:textSize="@dimen/text_medium"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/separator_height"
+            android:layout_marginLeft="@dimen/margin_left"
+            android:layout_marginTop="@dimen/separator_margin_top_bottom"
+            android:layout_marginBottom="@dimen/separator_margin_top_bottom"
+            android:background="@color/separator" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginRight="@dimen/margin_left"
-            android:gravity="right"
-            android:layout_marginEnd="@dimen/margin_left">
+            android:layout_marginLeft="@dimen/margin_left"
+            android:gravity="center"
+            android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/due_date"
-                android:fontFamily="@string/roboto_medium"
-                android:textColor="@color/text_dark_blue"
-                android:textSize="@dimen/main_title_text_size"
-                android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:gravity="right"/>
+                android:layout_height="wrap_content"
+                android:fontFamily="@string/roboto_regular"
+                android:text="@string/due_date"
+                android:textColor="@color/text_light_blue"
+                android:textSize="@dimen/text_medium" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_left"
+                android:layout_marginRight="@dimen/margin_left"
+                android:gravity="right"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/due_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@string/roboto_medium"
+                    android:gravity="right"
+                    android:textColor="@color/text_dark_blue"
+                    android:textSize="@dimen/text_medium" />
+            </LinearLayout>
+
         </LinearLayout>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/separator_height"
+            android:layout_marginLeft="@dimen/margin_left"
+            android:layout_marginTop="@dimen/separator_margin_top_bottom"
+            android:layout_marginBottom="@dimen/separator_margin_top_bottom"
+            android:background="@color/separator" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btnDetails"
+                android:layout_width="@dimen/button_width"
+                android:layout_height="@dimen/button_height"
+                android:layout_marginTop="@dimen/btnMarginTop"
+                android:background="@drawable/button_rounded"
+                android:letterSpacing="0.1"
+                android:text="@string/btnDetails"
+                android:textColor="@color/button_textcolor"
+                android:textSize="@dimen/text_small" />
+
+        </LinearLayout>
     </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/separator_height"
-        android:layout_marginTop="@dimen/separator_margin_top_bottom"
-        android:layout_marginBottom="@dimen/separator_margin_top_bottom"
-        android:layout_marginLeft="@dimen/margin_left"
-        android:background="@color/separator"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center_horizontal">
-
-        <Button
-            android:id="@+id/btnDetails"
-            android:layout_width="@dimen/button_width"
-            android:layout_height="@dimen/button_height"
-            android:layout_marginTop="@dimen/btnMarginTop"
-            android:background="@drawable/button_rounded"
-            android:letterSpacing="0.1"
-            android:text="@string/btnDetails"
-            android:textColor="@color/button_textcolor"
-            android:textSize="@dimen/text_small" />
-
-    </LinearLayout>
-
-
-
-</LinearLayout>
+</ScrollView>

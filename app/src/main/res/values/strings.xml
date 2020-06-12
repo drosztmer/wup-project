@@ -17,4 +17,16 @@
     <string name="due_date">Due date</string>
     <string name="details_available">Available</string>
     <string name="details_current_balance">Current balance</string>
+    <string name="balance_overview">BALANCE OVERVIEW</string>
+    <string name="balance_carried_over">Balance carried over from last statement</string>
+    <string name="total_spendings">Total spendings since last statement</string>
+    <string name="your_last_repayment">Your last repayment</string>
+    <string name="card_account_limit">Card account limit</string>
+    <string name="card_account_number">Card account number</string>
+    <string name="account_details">ACCOUNT DETAILS</string>
+    <string name="main_card">MAIN CARD</string>
+    <string name="card_number">Card number</string>
+    <string name="card_holder_name">Card holder name</string>
+    <string name="supplementary_card">SUPPLEMENTARY CARD</string>
+    <string name="details_activity_label">Details</string>
 </resources>
