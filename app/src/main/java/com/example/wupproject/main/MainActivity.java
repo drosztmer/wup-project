@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewParent;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -70,6 +71,12 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     @BindView(R.id.exclamationmark)
     View exclamationMark;
 
+    @BindView(R.id.left_arrow)
+    ImageView leftArrow;
+
+    @BindView(R.id.right_arrow)
+    ImageView rightArrow;
+
     private CardFragmentAdapter cardFragmentAdapter;
     private ViewPager.OnPageChangeListener onPageChangeListener;
     private Card currentCard;
@@ -84,6 +91,29 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         cardFragmentAdapter = new CardFragmentAdapter(getSupportFragmentManager());
         viewPager.setAdapter(cardFragmentAdapter);
         tabLayout.setupWithViewPager(viewPager, true);
+
+        leftArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int tab = viewPager.getCurrentItem();
+                if (tab > 0) {
+                    tab--;
+                    viewPager.setCurrentItem(tab);
+                } else if (tab == 0) {
+                    viewPager.setCurrentItem(tab);
+                }
+            }
+        });
+
+        rightArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int tab = viewPager.getCurrentItem();
+                tab++;
+                viewPager.setCurrentItem(tab);
+            }
+        });
+
         onPageChangeListener = new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
